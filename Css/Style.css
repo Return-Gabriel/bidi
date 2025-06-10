@@ -1,0 +1,345 @@
+body{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(120deg, #202020, #251010);
+  color: white;
+  font-family: FreeMono, monospace;
+  font-weight: 900;
+}
+
+body > div > div{
+  padding: 20px;
+  margin: 10px;
+}
+
+#card{
+  height: 95%;
+  min-height: 200px;
+  width: 100%;
+  background-color: #dedede;
+  border-radius: 20px;
+  display: grid;
+  grid-template-rows: repeat(5, 20%); /* linhas:(qnt, altura)*/
+  grid-template-columns: repeat(5, 20%); /* colunas:(qnt, largura)*/
+  box-shadow: 0px 0px 15px 5px rgba(250, 220, 220, 0.5);
+  overflow: hidden;
+  z-index: 1;
+}
+#daycount{
+  grid-row: 4/span 5;
+  grid-column: 2;
+  padding: 0px;
+  color: #dedede;
+  font-size: 18px;
+  transform: translateY(-30px);
+  filter: drop-shadow(1px 1px 10px red);
+  text-shadow: 0px 0px 5px white;
+  animation: Pulse 1.5s infinite;
+  z-index: 2;
+}
+#daycount img{
+  filter: saturate(150%);
+  z-index: 2;
+}
+
+#text{
+  grid-row: 4/span 5;
+  grid-column: 3 / span 5;
+  border-radius: 10px;
+  color: #dedede;
+  background: linear-gradient(120deg, #202020, #501010);
+  text-shadow: 0px 0px 3px white;
+  font-weight: 200;
+  font-size: 13px;
+  transition: 0.5s;
+  transform: translatey(-10px);
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+#text:hover{
+  color: white;
+  text-shadow: 0px 0px 10px white;
+  transform: translatey(-15px);
+}
+
+#gallery{
+  grid-row: 1/ span 3;
+  grid-column: 2 / span 5;
+  display: flex;
+  flex-wrap: wrap;
+  border-radius: 15px;
+  overflow: hidden;
+  padding: 0px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+#gallery .image-container {
+  position: relative; /* Adicionado para que o posicionamento absoluto do texto funcione corretamente */
+  width: 25%;
+  height: auto;
+  background-size: cover;
+  filter: saturate(30%);
+  transition: filter 0.5s ease, transform 0.5s ease;
+}
+#gallery .image-container:hover{
+  filter: saturate(150%);
+  transform: scale(1.05);
+}
+
+#checklist{
+  grid-row: 1 / span 5;
+  grid-column: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  color: #251010;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  font-size: 12px;
+  font-weight: 200;
+  z-index: 2;
+}
+#checklist heather{
+  height: 20px;
+  width: 100%;
+  margin-top: -10px;
+  background: linear-gradient(120deg, #202020, #401010);
+  padding: 8px;
+  border-radius: 10px 10px 0px 0px;
+  text-shadow: 0px 0px 10px white;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  z-index: 2;
+}
+.custom-checkbox input[type="checkbox"] {
+  display: none; /* Esconde o checkbox padrão */
+}
+/* Estilo para o span que simula o checkbox personalizado */
+.custom-checkbox .checkmark{
+  position: relative;
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border: 1px solid rgba(0,0,0,0.3);
+  transition: 0.4s;
+  border-radius: 10px;
+}
+.custom-checkbox :hover{
+  transform: scale(1.3);
+  
+}
+/* Estilo para o span quando o checkbox estiver marcado */
+.custom-checkbox input[type="checkbox"]:checked + .checkmark {
+  background-color: #ff2c2c; /* Define a cor de fundo vermelha */
+  box-shadow: 0px 0px 5px 3px rgba(250,250,250,1);
+}
+
+.particle {
+  position: absolute;
+  top: 50px; /* Posição inicial acima do card */
+  left: calc(50% - 25px); /* Centralizando a partícula */
+  width: 10px;
+  height: 10px;
+  background-image: url('https://icons.veryicon.com/512/System/Small%20%26%20Flat/heart.png');
+  background-size: cover;
+  animation: particleAnimation 5s linear infinite; /* Animação da partícula */
+  mix-blend-mode: multiply; /* Faz com que as partículas fiquem na frente do cartão */
+}
+
+/*Animações--------------------------*/
+@keyframes Pulse{
+  50% {
+    transform: scale(1.1) translatey(-10px);
+    letter-spacing: 3px;
+    filter: drop-shadow(0px 0px 20px red) saturate(100%);
+    text-shadow: 0px 0px 15px white;
+  }
+}
+
+@keyframes particleAnimation {
+  0% {
+    top: -50px; /* Posição inicial acima do card */
+    opacity: 0.9; /* Inicialmente invisível */
+  }
+  100% {
+    top: 350px; /* Posição final abaixo do card */
+    opacity: 0.1; /* Totalmente visível */
+    filter: hue-rotate(-100deg);
+  }
+}
+
+
+
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(120deg, #202020, #251010);
+  color: white;
+  font-family: FreeMono, monospace;
+  font-weight: 900;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+#card {
+  width: 100%;
+  max-width: 1700px;
+  background-color: #dedede;
+  border-radius: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-auto-rows: auto;
+  gap: 10px;
+  box-shadow: 0px 0px 15px 5px rgba(250, 220, 220, 0.5);
+  overflow: hidden;
+  padding: 10px;
+}
+
+#checklist {
+  grid-column: span 1;
+  display: flex;
+  flex-direction: column;
+  background: #f5f5f5;
+  padding: 10px;
+  color: #251010;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 200;
+}
+
+#checklist heather {
+  background: linear-gradient(120deg, #202020, #401010);
+  padding: 8px;
+  border-radius: 10px 10px 0 0;
+  text-shadow: 0px 0px 10px white;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.custom-checkbox input[type="checkbox"] {
+  display: none;
+}
+
+.custom-checkbox .checkmark {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  margin-right: 5px;
+}
+
+.custom-checkbox:hover {
+  transform: scale(1.05);
+}
+
+.custom-checkbox input[type="checkbox"]:checked + .checkmark {
+  background-color: #ff4d4d;
+}
+
+#daycount {
+  position: relative;
+  grid-column: span 1;
+  padding: 10px;
+  text-align: center;
+  filter: drop-shadow(1px 1px 10px red);
+  animation: Pulse 1.5s infinite;
+}
+
+#daycount img {
+  width: 100%;
+  max-width: 200px;
+}
+
+#daycount span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #dedede;
+  text-shadow: 0px 0px 5px white;
+  font-size: 18px;
+}
+
+#text {
+  grid-column: span 2;
+  background: linear-gradient(120deg, #202020, #501010);
+  color: #dedede;
+  font-weight: 200;
+  font-size: 14px;
+  border-radius: 10px;
+  padding: 10px;
+  text-shadow: 0px 0px 3px white;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+  transition: 0.5s;
+}
+
+#text:hover {
+  color: white;
+  text-shadow: 0px 0px 10px white;
+  transform: translateY(-5px);
+}
+
+#gallery {
+  grid-column: span 3;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  justify-content: center;
+}
+
+.image-container {
+  flex: 1 1 calc(33% - 10px);
+  aspect-ratio: 1/1;
+  background-size: cover;
+  background-position: center;
+  filter: saturate(30%);
+  transition: filter 0.5s ease, transform 0.5s ease;
+  min-width: 100px;
+  border-radius: 10px;
+}
+
+.image-container:hover {
+  filter: saturate(150%);
+  transform: scale(1.05);
+}
+
+@keyframes Pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.03);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  #card {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #gallery .image-container {
+    flex: 1 1 45%;
+  }
+
+  #text, #daycount, #checklist {
+    width: 100%;
+    grid-column: auto;
+  }
+}
